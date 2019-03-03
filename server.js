@@ -12,29 +12,32 @@ var PORT = process.env.PORT || 3000;
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-// Star Wars Characters (DATA)
+// Star Wars breeds (DATA)
 // =============================================================
-var characters = [
+var breeds = [
   {
-    routeName: "yoda",
-    name: "Yoda",
-    role: "Jedi Master",
-    age: 900,
-    forcePoints: 2000
+    routeName: "quarter",
+    name: "Quarter Horse",
+    knownFor: "cattle work, calm demeanor",
+    size: "15.2 hands",
+    colors: "chestnut, sorrel, black, brown, gray, bay, palomino, buckskin, cremello, perlino, white, dun, red dun, grullo, red roan, bay roan and blue roan"
   },
   {
-    routeName: "darthmaul",
-    name: "Darth Maul",
-    role: "Sith Lord",
-    age: 200,
-    forcePoints: 1200
+    routeName: "thoroughbred",
+    name: "Thoroughbred",
+    knownFor: "speed",
+    size: "16 hands",
+    colors: "most often bay, dark bay or brown, chestnut, black, or gray"
   },
   {
-    routeName: "obiwankenobi",
-    name: "Obi Wan Kenobi",
-    role: "Jedi Master",
-    age: 55,
-    forcePoints: 1350
+    routeName: "appaloosa",
+    name: "Appaloosa",
+    knownFor: "color and spirit",
+    size: "15.3 hands",
+    colors: "combination of a base color with several possible overlaid spotting patterns. Base colors recognized by the Appaloosa Horse Club include bay, black, chestnut, palomino, buckskin, cremello or perlino, roan, gray, dun and grulla"
+  },
+  {
+
   }
 ];
 
@@ -54,41 +57,41 @@ app.get("/all", function(req, res) {
   res.sendFile(path.join(__dirname, "all.html"));
 });
 
-// Displays all characters
-app.get("/api/characters", function(req, res) {
-  return res.json(characters);
+// Displays all breeds
+app.get("/api/breeds", function(req, res) {
+  return res.json(breeds);
 });
 
-// Displays a single character, or returns false
-app.get("/api/characters/:character", function(req, res) {
-  var chosen = req.params.character;
+// Displays a single breeds, or returns false
+app.get("/api/breeds/:breeds", function(req, res) {
+  var chosen = req.params.breeds;
 
   console.log(chosen);
 
-  for (var i = 0; i < characters.length; i++) {
-    if (chosen === characters[i].routeName) {
-      return res.json(characters[i]);
+  for (var i = 0; i < breeds.length; i++) {
+    if (chosen === breeds[i].routeName) {
+      return res.json(breeds[i]);
     }
   }
 
   return res.json(false);
 });
 
-// Create New Characters - takes in JSON input
-app.post("/api/characters", function(req, res) {
+// Create New breeds - takes in JSON input
+app.post("/api/breeds", function(req, res) {
   // req.body hosts is equal to the JSON post sent from the user
   // This works because of our body parsing middleware
-  var newcharacter = req.body;
+  var newbreeds = req.body;
 
-  // Using a RegEx Pattern to remove spaces from newCharacter
+  // Using a RegEx Pattern to remove spaces from newbreeds
   // You can read more about RegEx Patterns later https://www.regexbuddy.com/regex.html
-  newcharacter.routeName = newcharacter.name.replace(/\s+/g, "").toLowerCase();
+  newbreeds.routeName = newbreeds.name.replace(/\s+/g, "").toLowerCase();
 
-  console.log(newcharacter);
+  console.log(newbreeds);
 
-  characters.push(newcharacter);
+  breeds.push(newbreeds);
 
-  res.json(newcharacter);
+  res.json(newbreeds);
 });
 
 // Starts the server to begin listening

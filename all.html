@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>Star Wars - Express</title>
+  <title>MERN full-stack</title>
   <!-- Latest compiled and minified CSS & JS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -16,11 +16,11 @@
 
   <div class="container">
     <div class="jumbotron">
-      <h1>Star Wars Express</h1>
-      <h3>The greatest resource in the galaxy for Star Wars statistics!</h3>
+      <h1>Horse Breeds</h1>
+      <h3>Quick Facts about Popular Horses </h3>
       <hr>
-      <a href="/"><button class="btn btn-danger btn-lg"><span class="fa fa-eye"></span> Search Characters</button></a>
-      <a href="/add"><button class="btn btn-danger btn-lg"><span class="fa fa-plus"></span> Add New Character</button></a>
+      <a href="/"><button class="btn btn-danger btn-lg"><span class="fa fa-eye"></span> Search Breeds</button></a>
+      <a href="/add"><button class="btn btn-danger btn-lg"><span class="fa fa-plus"></span> Add New Breed</button></a>
     </div>
     <div class="row">
 
@@ -28,10 +28,10 @@
 
         <div class="card">
           <div class="card-header">
-            <strong>Character Database</strong></h3>
+            <strong>Breed Database</strong></h3>
           </div>
           <div class="card-body">
-            <ul id="character-section" class="list-group">
+            <ul id="breeds-section" class="list-group">
 
             </ul>
           </div>
@@ -41,17 +41,17 @@
 
     <script type="text/javascript">
 
-      $.get("/api/characters", function(data) {
+      $.get("/api/breeds", function(data) {
         for (var i = 0; i < data.length; i++) {
           console.log(data[i]);
           var listGroupItem = $("<li class='list-group-item'>");
 
-          listGroupItem.append($("<h2>").text("Name: " + data[i].name));
-          listGroupItem.append($("<h3>").text("Role: " + data[i].role));
-          listGroupItem.append($("<h3>").text("Age: " + data[i].age));
-          listGroupItem.append($("<h3>").text("Force Points: " + data[i].forcePoints));
+          listGroupItem.append($("<h2>").text("Breed Name: " + data[i].name));
+          listGroupItem.append($("<h3>").text("Known For: " + data[i].knownFor));
+          listGroupItem.append($("<h3>").text("Average Size: " + data[i].size));
+          listGroupItem.append($("<h3>").text("Common Colors: " + data[i].colors));
 
-          $("#character-section").append(listGroupItem);
+          $("#breeds-section").append(listGroupItem);
         }
       });
     </script>

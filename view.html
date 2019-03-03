@@ -16,11 +16,11 @@
 
   <div class="container">
     <div class="jumbotron">
-      <h1>Star Wars Express</h1>
-      <h3>The greatest resource in the galaxy for Star Wars statistics!</h3>
+      <h1>Horse Breeds</h1>
+      <h3>Quick Facts about the most Popular Horses </h3>
       <hr>
-      <a href="/add"><button class="btn btn-danger btn-lg"><span class="fa fa-plus"></span> Add New Character</button></a>
-      <a href="/all"><button class="btn btn-danger btn-lg"><span class="fa fa-th-list"></span> All Characters</button></a>
+      <a href="/add"><button class="btn btn-danger btn-lg"><span class="fa fa-plus"></span> Add New Breed</button></a>
+      <a href="/all"><button class="btn btn-danger btn-lg"><span class="fa fa-th-list"></span> All Breeds</button></a>
     </div>
     <div class="row">
 
@@ -28,14 +28,14 @@
 
         <div class="card mb-4">
           <div class="card-header">
-            <h3><strong>Character Search</strong></h3>
+            <h3><strong>Breed Search</strong></h3>
           </div>
           <div class="card-body">
-            <input type="text" id="character-search" class="form-control">
+            <input type="text" id="breeds-search" class="form-control">
             <br>
             <div class="text-right">
               <button type="submit" class="btn btn-primary btn-md" id="search-btn"><span class="fa fa-search"></span> Search
-                Your Feelings. You know it is true.</button>
+                Breeds</button>
 
             </div>
           </div>
@@ -43,15 +43,15 @@
 
         <div class="card">
           <div class="card-header">
-            <h3><strong>Character Statistics</strong></h3>
+            <h3><strong>Breeds data</strong></h3>
           </div>
           <div class="card-body">
-            <h2 id="name">Yoda</h2>
+            <!-- <h2 id="name">Yoda</h2>
             <div id="stats">
-              <h3><strong>Role:</strong> <span id="role">Jedi Master</span></h3>
-              <h3><strong>Age:</strong> <span id="age">900</span></h3>
-              <h3><strong>Force Points:</strong> <span id="force-points">2000</span></h3>
-            </div>
+              <h3><strong>knownFor:</strong> <span id="knownFor">Jedi Master</span></h3>
+              <h3><strong>Size:</strong> <span id="size">900</span></h3>
+              <h3><strong>Force Points:</strong> <span id="colors">2000</span></h3>
+            </div> -->
           </div>
         </div>
       </div>
@@ -60,23 +60,23 @@
 
   <script type="text/javascript">
     $("#search-btn").on("click", function() {
-      var searchedCharacter = $("#character-search").val().trim();
+      var searchedbreeds = $("#breeds-search").val().trim();
 
-      // Using a RegEx Pattern to remove spaces from searchedCharacter
+      // Using a RegEx Pattern to remove spaces from searchedbreeds
       // You can read more about RegEx Patterns later https://www.regexbuddy.com/regex.html
-      searchedCharacter = searchedCharacter.replace(/\s+/g, "").toLowerCase();
+      searchedbreeds = searchedbreeds.replace(/\s+/g, "").toLowerCase();
 
-      $.get("/api/characters/" + searchedCharacter, function(data) {
+      $.get("/api/breeds/" + searchedbreeds, function(data) {
         console.log(data);
         if (data) {
           $("#stats").show();
           $("#name").text(data.name);
-          $("#role").text(data.role);
-          $("#age").text(data.age);
-          $("#force-points").text(data.forcePoints);
+          $("#knownFor").text(data.knownFor);
+          $("#size").text(data.size);
+          $("#colors").text(data.colors);
         }
         else {
-          $("#name").text("The force is not strong with this one. Your character was not found.");
+          $("#name").text("The force is not strong with this one. Your breeds was not found.");
           $("#stats").hide();
         }
       });
