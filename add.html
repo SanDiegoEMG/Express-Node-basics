@@ -17,7 +17,7 @@
   <div class="container">
     <div class="jumbotron">
       <h1>Horse Breeds</h1>
-      <h3>Quick Facts about the most Popular Horses </h3>
+      <h3>Quick Facts about the most Popular American Horses </h3>
       <hr>
       <a href="/">
         <button class="btn btn-danger btn-lg">
@@ -55,7 +55,7 @@
               </div>
 
               <div class="form-group">
-                <label for="colors">Known for:</label>
+                <label for="colors">Colors:</label>
                 <input type="text" class="form-control" id="colors">
               </div>
 
@@ -88,7 +88,7 @@
       $.post("/api/breeds", newbreeds)
         .then(function(data) {
           console.log(data);
-          alert("Adding breeds...");
+          alert("Adding new breed...");
         });
 
     });
