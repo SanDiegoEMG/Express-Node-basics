@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>MERN full-stack</title>
+  <title>Express/Node basics</title>
   <!-- Latest compiled and minified CSS & JS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -73,7 +73,7 @@
   </div>
 
   <script type="text/javascript">
-    // Question: What does this code do?
+    // when button is clicked, creates json with info from data fields
     $("#add-btn").on("click", function(event) {
       event.preventDefault();
 
@@ -81,10 +81,10 @@
         name: $("#name").val().trim(),
         knownFor: $("#knownFor").val().trim(),
         size: $("#size").val().trim(),
-        colors: $("#known-for").val().trim()
+        colors: $("#colors").val().trim()
       };
 
-      // Question: What does this code do??
+      // sends data from form to db
       $.post("/api/breeds", newbreeds)
         .then(function(data) {
           console.log(data);

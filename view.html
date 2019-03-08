@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>Star Wars - Express</title>
+  <title>Express/Node basics</title>
   <!-- Latest compiled and minified CSS & JS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -17,7 +17,7 @@
   <div class="container">
     <div class="jumbotron">
       <h1>Horse Breeds</h1>
-      <h3>Quick Facts about the most Popular American Horses </h3>
+      <h3>Quick Facts about the most Popular American Horses</h3>
       <hr>
       <a href="/add"><button class="btn btn-danger btn-lg"><span class="fa fa-plus"></span> Add New Breed</button></a>
       <a href="/all"><button class="btn btn-danger btn-lg"><span class="fa fa-th-list"></span> All Breeds</button></a>
@@ -46,11 +46,11 @@
             <h3><strong>Breeds data</strong></h3>
           </div>
           <div class="card-body">
-            <h2 id="name">Quarter Horse</h2>
+            <h2 id="name"></h2>
             <div id="stats">
-              <h3><strong>Known for:</strong> <span id="knownFor">cattle work, calm demeanor</span></h3>
-              <h3><strong>Size:</strong> <span id="size">15.2 hands</span></h3>
-              <h3><strong>Colors:</strong> <span id="colors">chestnut, sorrel, black, brown, gray, bay, palomino, buckskin, cremello, perlino, white, dun, red dun, grullo, red roan, bay roan and blue roan</span></h3>
+              <h3><strong>Known for:</strong> <span id="knownFor"></span></h3>
+              <h3><strong>Size:</strong> <span id="size"></span></h3>
+              <h3><strong>Colors:</strong> <span id="colors"></span></h3>
             </div>
           </div>
         </div>
@@ -76,7 +76,7 @@
           $("#colors").text(data.colors);
         }
         else {
-          $("#name").text("The force is not strong with this one. Your breeds was not found.");
+          $("#name").text("That breed is not found. Please try again.");
           $("#stats").hide();
         }
       });

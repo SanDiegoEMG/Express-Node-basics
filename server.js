@@ -36,9 +36,6 @@ var breeds = [
     size: "15.3 hands",
     colors: "combination of a base color with several possible overlaid spotting patterns. Base colors recognized by the Appaloosa Horse Club include bay, black, chestnut, palomino, buckskin, cremello or perlino, roan, gray, dun and grulla"
   },
-  {
-
-  }
 ];
 
 // Routes
@@ -62,7 +59,7 @@ app.get("/api/breeds", function(req, res) {
   return res.json(breeds);
 });
 
-// Displays a single breeds, or returns false
+// Displays a single breed, or returns false
 app.get("/api/breeds/:breeds", function(req, res) {
   var chosen = req.params.breeds;
 
